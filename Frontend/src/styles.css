@@ -1,0 +1,100 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', 'Poppins', system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-input-soft: var(--input-soft);
+  --color-hover-row: var(--hover-row);
+  --color-navy: var(--navy);
+
+  --shadow-soft: 0 4px 16px rgba(0,0,0,0.07);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-nav: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-btn: 0 4px 14px rgba(21,101,192,0.25);
+  --shadow-swap: 0 2px 8px rgba(0,0,0,0.12);
+  --ring-focus: 0 0 0 3px rgba(21,101,192,0.15);
+
+  --gradient-hero: linear-gradient(90deg, #1A1A2E 0%, #1565C0 100%);
+
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.35s ease-out;
+  --animate-dropdown: dropdown 0.18s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes dropdown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.985 0.002 250);          /* #F8F9FA */
+  --foreground: oklch(0.27 0.01 270);            /* #212121 */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.01 270);
+  --primary: oklch(0.518 0.165 257);             /* #1565C0 */
+  --primary-foreground: oklch(1 0 0);
+  --primary-dark: oklch(0.42 0.17 260);          /* #0D47A1 */
+  --navy: oklch(0.22 0.04 280);                  /* #1A1A2E */
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.27 0.01 270);
+  --muted: oklch(0.96 0.01 250);
+  --muted-foreground: oklch(0.55 0.02 260);
+  --accent: oklch(0.95 0.03 260);
+  --accent-foreground: oklch(0.27 0.01 270);
+  --input-soft: oklch(0.97 0.025 260);           /* #F0F4FF */
+  --hover-row: oklch(0.96 0.025 270);            /* #EEF2FF */
+  --border: oklch(0.93 0.01 255);
+  --input: oklch(0.93 0.01 255);
+  --ring: oklch(0.518 0.165 257);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.01 270);
+}
+
+@layer base {
+  html, body {
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Thin blue rounded scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--primary) 60%, transparent);
+    border-radius: 999px;
+  }
+}

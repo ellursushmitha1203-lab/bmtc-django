@@ -1,10 +1,11 @@
 from django.urls import path
 
-from . import views
+from . import api_views
 
 app_name = "routes"
 
 urlpatterns = [
-    path("", views.route_search, name="route_search"),
+    path("api/buses/", api_views.api_buses, name="api_buses"),
+    path("", api_views.root_status, name="root_status"),
 ]
 
